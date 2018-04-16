@@ -33,5 +33,5 @@ class Boat < ActiveRecord::Base
 
   def self.longest
     all.order(length: :desc).first
-  end 
+  end
 end
