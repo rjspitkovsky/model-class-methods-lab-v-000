@@ -16,7 +16,7 @@ class Boat < ActiveRecord::Base
   end
 
   def self.last_three_alphabetically
-    order('name desc').limit(3)
+    order(name: :desc).limit(3)
   end
 
   def self.without_a_captain
@@ -31,7 +31,7 @@ class Boat < ActiveRecord::Base
     joins(:classifications).group("boats.id").having("COUNT(*) = 3").select("boats.*")
   end
 
-  def self.longest 
-    all.order(length: :desc).first 
+  def self.longest
+    all.order(length: :desc).first
   end 
 end
